@@ -3,3 +3,7 @@
 ################################################################################
 
 /AspDotNetCoreMvc/.vs
+/AspDotNetCoreMvc/AspDotNetCoreMvc/bin/Debug/netcoreapp2.1
+/AspDotNetCoreMvc/AspDotNetCoreMvc/obj
+/AspDotNetCoreMvc/AspDotNetCoreMvc.Models/bin/Debug/netcoreapp2.1
+/AspDotNetCoreMvc/AspDotNetCoreMvc.Models/obj
