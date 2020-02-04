@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AspDotNetCoreMvc.Services;
+using AspDotNetCoreMvc.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -13,6 +15,11 @@ namespace AspDotNetCoreMvc
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public void ConfigureServices(IServiceCollection services)
         {
             // AddMvc()：注册MVC所需要的一些相关的服务到IoC容器里
@@ -23,6 +30,11 @@ namespace AspDotNetCoreMvc
             // 在 Controller 的构造函数和方法中都可以注入，注入的为接口
             services.AddSingleton<ICinemaService, CinemaMemoryService>();
             services.AddSingleton<IMovieService, MovieMemoryService>();
+
+            // 仅ConnectionString的内容
+            services.Configure<ConnectionOption>(_configuration.GetSection("ConnectionString"));
+            // 全部内容
+            // services.Configure<ConnectionOption>(_configuration);
 
         }
 

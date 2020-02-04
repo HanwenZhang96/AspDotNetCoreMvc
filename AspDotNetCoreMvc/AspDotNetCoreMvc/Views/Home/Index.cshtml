@@ -1,5 +1,9 @@
 ﻿@using AspDotNetCoreMvc.Models
+@using AspDotNetCoreMvc.Settings
+@using Microsoft.Extensions.Options
 @model IEnumerable<Cinema>
+
+@inject IOptions<ConnectionOption> options
 <div class="container">
     <div class="row">
         <table class="table">
@@ -9,12 +13,14 @@
                     <th scope="col">Name</th>
                     <th scope="col">Locaton</th>
                     <th scope="col">Capacity</th>
-                    <th></th>
+                    <th>@options.Value.DefaultConnection</th>
                 </tr>
             </thead>
             <tbody>
                 @Html.DisplayForModel()
             </tbody>
         </table>
+        @await Component.InvokeAsync("MovieCount",new { cinemaId=1})
+        <vc:movie-count cinema-id="2"></vc:movie-count>
     </div>
 </div>

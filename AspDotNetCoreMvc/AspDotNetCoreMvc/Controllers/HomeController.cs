@@ -1,16 +1,23 @@
 ﻿using System.Threading.Tasks;
 using AspDotNetCoreMvc.Models;
 using AspDotNetCoreMvc.Services;
+using AspDotNetCoreMvc.Settings;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace AspDotNetCoreMvc.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ICinemaService _cinemaService;
-        public HomeController(ICinemaService cinemaService)
+        private readonly IOptions<ConnectionOption> _options;
+
+        public HomeController(ICinemaService cinemaService
+             , IOptions<ConnectionOption> options
+            )
         {
             _cinemaService = cinemaService;
+             _options = options;
         }
 
         public async Task<IActionResult> Index()
@@ -41,6 +48,11 @@ namespace AspDotNetCoreMvc.Controllers
             }
             // 跳转至当前controller下的action
             return RedirectToAction("Index");
+        }
+
+        public IActionResult GetSettings()
+        {
+            return Json(_options.Value.DefaultConnection);
         }
     }
 }
