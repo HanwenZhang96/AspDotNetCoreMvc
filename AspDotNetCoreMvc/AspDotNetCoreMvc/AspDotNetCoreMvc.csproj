@@ -1,7 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <!--在多个系统上运行-->
+    <RuntimeIdentifiers>win10-x64;ubuntu.16.04-x64</RuntimeIdentifiers>
+    <!--在单个系统上运行-->
+    <!--<RuntimeIdentifier>win10-x64</RuntimeIdentifier>-->
   </PropertyGroup>
 
   <ItemGroup>

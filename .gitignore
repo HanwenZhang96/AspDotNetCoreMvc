@@ -8,3 +8,8 @@
 /AspDotNetCoreMvc/AspDotNetCoreMvc.Models/bin/Debug/netcoreapp2.1
 /AspDotNetCoreMvc/AspDotNetCoreMvc.Models/obj
 /AspDotNetCoreMvc/AspDotNetCoreMvc/node_modules
+/AspDotNetCoreMvc/AspDotNetCoreMvc/bin/Release/netcoreapp2.1/win10-x64
+/AspDotNetCoreMvc/AspDotNetCoreMvc/bin/Release/netcoreapp2.1/win-x64
+/AspDotNetCoreMvc/AspDotNetCoreMvc/bin/Release/netcoreapp2.1
+/AspDotNetCoreMvc/AspDotNetCoreMvc/Properties/PublishProfiles
+/AspDotNetCoreMvc/AspDotNetCoreMvc.Models/bin/Release/netcoreapp2.1
